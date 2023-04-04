@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드이동</title>
+</head>
+<body>
+
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        //배열의 destructuring
+        const [$apple, $banana, $grape] = [...$fruits.children];
+
+        const $mango = document.createElement('li');
+        $mango.textContent = 'Mango';
+
+        //맨 마지막에 추가
+        $fruits.appendChild($mango);
+
+        //이미 활성화된 요소를 추가하면 이동한다. 
+        $fruits.appendChild($banana); 
+
+        //insertBefore도 마찬가지로 기존요소를 이동시킬 수 있다. 
+        $fruits.insertBefore($apple, $mango); //애플을 망고 이전으로 옮기기.
+
+        
+
+        //간단 문제! grape를 맨 마지막 노드 바로 앞으로 옮겨 보세요.
+        //애플 망고 그레이프 바나나가 되어야 한다.
+        // $fruits.insertBefore($grape, $banana)
+        $fruits.insertBefore($grape, $fruits.lastElementChild)
+
+
+
+    </script>
+</body>
+</html>

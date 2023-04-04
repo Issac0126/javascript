@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array-2d</title>
+</head>
+<body>
+    
+
+    <script>
+        //우리반 학생들 4과목 점수 (국영수탐)
+        // var kim = [67, 89, 92, 32];
+        // var lee = [100,87,55,67];
+        // var park = [23,44,100,22];
+
+        var outStudentScore = [
+            [67, 89, 92, 32],
+            [100,87,55,67],
+            [23,44,100,22]
+        ];
+        
+        console.log(outStudentScore);
+        console.log(outStudentScore[1]); //array
+        console.log(outStudentScore[0][2]); //1번째 학생의 수학점수
+
+
+        //반 평균 구하기
+
+        var total=0;
+        for(var out of outStudentScore){
+            for(var o of out){
+                total += o;
+            }
+        }
+        var avg = total/(4*outStudentScore.length);
+        console.log('반 평균: '+ Math.round(avg*100)/100 +'점')
+
+
+    </script>
+
+</body>
+</html>

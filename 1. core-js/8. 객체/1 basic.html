@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 html</title>
+</head>
+<body>
+    
+    <!-- 
+        객체 생성
+        객체 리터럴 방식을 많이 사용한다.
+        클래스 없이 0개 이상의 프로퍼티로 구성된 집합 자료 구조
+        프로퍼티는 키와 값의 쌍으로 구성된다. (자바의 map과 유사함.)
+     -->
+
+    <script>
+
+        var dog ={
+            name: '먼지',
+            kind: '병아리',
+            age: 3,
+            favorite: ['산책', '사람']
+        };
+
+        var cat = {
+            name: '구구국',
+            kind: '고양이',
+            age: 5,
+            favorite: ['러브', '앤', '피스']
+        }
+
+        console.log(typeof dog);
+
+        //객체 프로퍼티 참조 순서는 무관함. 
+        console.log(dog.name);
+        console.log(cat.name);
+        console.log(cat[key]);
+        
+        console.log(dog.age);
+        console.log(cat.favorite[0]);
+        
+        dog.favorite.push('밥')
+        console.log(dog);
+        
+        console.log('─────────────────────────────')
+        
+        //프로퍼티 참조 다른 방식
+        console.log(dog.kind);
+        console.log(dog['kind']);
+        
+        //프로퍼티 값 수정
+        dog.age = 4;
+        console.log(dog.age);
+        
+        cat.favorite[1] ='고등어'
+        console.log(dog);
+        console.log(cat);
+        
+        console.log('─────────────────────────────')
+
+        //프로퍼티 동적 추가
+        dog.owner = '김철수';
+        console.log(dog)
+        
+        //프로퍼티 삭제
+        delete dog.owner
+        console.log(dog)
+
+        console.log('─────────────────────────────')
+
+        // for ~ in (ES6)
+        // 객체에서는 for of 사용 불가! for in만 가능.
+        for(var key in cat){
+            console.log(`key: ${key}, value: ${cat[key]}`)
+        }
+
+        //객체의 프로퍼티 키의 존재 유무 확인 (in 키워드)
+        var flag = 'owner' in cat; //해당 키가 존재하면 false, 없으면 true.
+        console.log(flag)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        </script>
+
+
+</body>
+</html>

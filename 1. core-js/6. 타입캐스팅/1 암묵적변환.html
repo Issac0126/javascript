@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암묵적변환</title>
+</head>
+<body>
+    
+
+    <script>
+        var ex = 10 + '20';
+        console.log(ex);  // => 1020
+
+        var ex2 = 10 * '3'; 
+        console.log(ex2);  //30 곱하기는 된다.
+        console.log("[type?] 10*'3' = " +typeof ex2);  //30 곱하기는 된다.
+        
+        ex2 = 100 + '';
+        console.log("[type?] 100 + '' = "+typeof ex2);  //
+
+        //문자열 타입의 암묵적 숫자 변환
+        var ex3 = +'550';
+
+        ex3= +'false';
+        console.log("+'false' = "+ex3);
+        
+        //논리 타입을 암묵적 숫자 변환
+        ex3= +true;
+        console.log("+true = "+ex3);
+        
+        ex3= +false;
+        console.log("+false = "+ex3);
+
+        ex3= +null;
+        console.log("+null = "+ex3);
+
+        console.log("[type?] +'550' = "+typeof ex3)
+    </script>
+
+
+
+</body>
+</html>

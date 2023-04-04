@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li class="fruits apple">Apple</li>
+        <li class="fruits banana">Banana</li>
+        <li class="fruits grape">Grape</li>
+        <li class="fruits pine">PineApple</li>
+    </ul>
+
+    <script>
+        // const $elem = document.querySelector('.banana');
+        // const $elem = document.querySelector('#fruits > li:nth-child(2)');
+        // const $elem = document.querySelector('li.apple + li'); //.apple의 인접한 형제 li를 지목
+        const $elem = document.querySelector('li[class="fruits banana"]');
+        $elem.style.color = 'tomato';
+
+        console.log($elem);
+        
+        const $element = document.querySelectorAll('#fruits > li')
+        console.log($element);
+
+        for(let $ele of $element){
+            $ele.style.background = 'orange';
+        }
+
+        //없는 선택자 지목 시 리턴되는 값
+        //querySelector -> null
+        //querySelectorAll -> 빈 노드리스트 객체(유사배열 객체)
+        const $test = document.querySelector('.peach')
+        console.log($test)
+        const $testAll = document.querySelectorAll('.peach')
+        console.log($testAll)
+        
+
+    </script>
+</body>
+</html>

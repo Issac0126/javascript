@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 퀴즈</title>
+</head>
+<body>
+
+    <script>
+        /*
+        Q. n개의 정수를 전달하면 해당 정수들의 
+         총합과 평균을 반환하는 함수 
+         calcTotAvg를 정의하세요.
+         화살표 함수를 사용하면서 리턴은 객체로 됩니다.
+        */
+
+        // function calcTotAvg(...numbers){
+        //     var total=0;
+        //     for(var num of numbers){
+        //         total+=num;
+        //     }
+
+        //     return ;
+        // }
+
+        
+        // var add3 = (n1, n2) => n1+n2     화살표 함수 예시
+        var calcTotAvg = (...numbers) => {
+            var total=0;
+            for(var num of numbers){
+                total+=num;
+            }; 
+
+            var avg= total/number.length;
+            // return { total, avg } //ES6 지원 문법
+            return {
+                total: total,
+                avg: avg
+            }
+        }
+
+        // 함수를 변수에 할당할 수 있다.
+        var result = calcTotAvg(1,2,3,4,5,6,7,8,9,10)
+        console.log('total: '+result['total']);
+        console.log('avg: '+result['avg']);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

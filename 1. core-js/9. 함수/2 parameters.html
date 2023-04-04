@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameters</title>
+</head>
+<body>
+    
+
+    <script>
+
+    // begin부터 end까지의 총합을 구해주는 함수
+    function calcRangeTotal(begin, end){
+        var total =0;
+
+        /*
+        JS에서 매개변수는 큰 의미가 없다.
+        매개값으로 들어오는 것에 이름을 붙여 사용하는 단순한 형태이다.
+        함수에 전달되는 매개값은 arguments 객체에서
+        전부 확인이 가능하다.
+        */
+        console.log(arguments)
+        console.log('길이: '+arguments.length)
+        console.log('세 번째 매개값: '+arguments[3])
+
+        for(var i=begin; i<=end; i++){
+            total+=i;
+        }
+        return total;
+    }
+
+    function selectRandomFood() {
+        var rn = Math.random();
+        return rn > 0.5 ? '짜장면' : '짬뽕';
+    }
+    console.log('오늘 점심은 무엇? '+selectRandomFood());
+    
+    function multiply(n1, n2){
+        if(typeof n1 !=='number' || typeof n2 !=='number'){
+            console.log('숫자를 전달하세요!')
+            return null;
+        }
+        return n1*n2;
+    }
+    var res = multiply(2, '메롱');
+    console.log(res);
+
+    
+    //매개변수의 default값 지정 (ES6)
+    function sayHello(lang = '한국어') {
+        if(lang ==='한국어'){
+            console.log('안녕하세요!');
+        } else if(lang ==='영어'){
+            console.log('Hello');
+        } else if(lang ==='일본어'){
+            console.log('곤니치와')
+        }
+    }
+
+    sayHello('한국어');
+    sayHello('영어');
+    sayHello('일본어');
+    sayHello();
+
+
+
+        
+    //자바 스크립트 함수는 매개변수의 개수를 다르게 주더라도 
+    //정상 작동한다. (단, 좋은 코드는 결코 아니다.)
+    var totalNumber = calcRangeTotal(10,30,50,60,70,80);
+    console.log('실행 결과값: '+totalNumber);
+
+
+    </script>
+</body>
+</html>

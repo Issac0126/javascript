@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <ul id="fruits">
+        <li class="fruits apple">Apple</li>
+        <li class="fruits banana">Banana</li>
+        <li class="fruits grape">Grape</li>
+        <li class="fruits pine">PineApple</li>
+        </ul>
+        
+    <script>
+        const $elements = document.getElementsByClassName('fruits');
+        console.log($elements);
+        const $banana = document.getElementsByClassName('banana');
+        console.log($banana);
+        // $banana.style.color = 'yellow';   (x) 바나나는 단일객체가 아닌 유사배열. 
+        $banana[0].style.color = 'orange';  //바나나의 0번 인덱스에 옐로우를 줘라.
+
+
+    </script>
+
+</body>
+</html>
