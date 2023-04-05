@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 전파2</title>
+
+    <style>
+         #fruits{
+            list-style: none;
+            padding: 0px;
+            line-height: 1.5;
+        }
+
+        #fruits > li {
+           width: 100px;
+           cursor: pointer;
+        }
+
+        #fruits > .active{
+            color: tomato;
+            text-decoration: underline;
+            /* font-size: 1.3em; */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+
+    <br>
+
+    #새로운 과일 추가:
+    <input type="text" class="text-box">
+    <button id="add">추가</button>
+
+
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+        const $liList = [...$fruits.children]; 
+
+
+        //이벤트 핸들러 함수 
+        function activate(e) {
+            //이벤트 발생 타겟이 특정 요소인지를 검증
+            if(!e.target.matches('#fruits > li')){
+                console.log('여기는 이벤트가 발생하면 안돼')
+                return;
+            }
+
+            //active 클래스를 클릭된 요소에 추가하고
+            //기존에 active를 가지고 있던 요소에 클래스를 삭제.
+            for(let $li of $liList){
+                /* 
+                toggle 메서드의 두번째 매개값으로 논리값을 전달할 수 있는데,
+                해당 논리값이 true면 지정한 클래스를 추가하고,
+                false면 지정한 클래스를 삭제한다. 
+                한줄요약: 있으면 제거하되, 없을 경우 true면 추가하고 false면 추가하지 않는다. 
+                */
+                $li.classList.toggle('active', $li === e.target) 
+            }
+
+            //메세지 영역에 이펙트가 발생된 과일 이름을 추가
+            console.log(e)
+            $msg.textContent = e.target.textContent;
+            // $msg.textContent = e.target.id;
+            }
+
+
+        //ul에 이벤트 등록
+        $fruits.addEventListener('click', activate);
+
+        //동적으로 과일을 추가하자
+        const $btn = document.getElementById('add');
+        const $textBox = document.querySelector('.text-box')
+
+        $btn.addEventListener('click', e => {
+            const $newLi = document.createElement('li') //<li></li>
+            $newLi.textContent = $textBox.value; //<li>Orange</li>
+            $newLi.setAttribute('id', $textBox.value.toLowerCase()) //<li id="orange">Orange</li>
+            $fruits.appendChild($newLi); //목록에 추가!
+            $textBox.value = '';
+
+            //새롭게 추가된 li에도 active 추가 대상 여부를 확인하기 위해 배열에 추가.
+            $liList.push($newLi);
+        })
+
+
+        //입력창 안에서 엔터 키를 입력하면 버튼 클릭과 동일한 효과 내기
+        $textBox.addEventListener('keydown', e=>{
+            if(e.key === 'Enter'){
+                //click()은 요소를 직접 클릭한 것과 같은 효과를 줌.
+                //클릭 이벤트가 발생할 수 있도록 유도.
+                $btn.click();
+            }
+        })
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트객체 프로퍼티</title>
+</head>
+<body>
+    
+    <label>
+        <input type="checkbox">
+        <em class="message"></em>
+
+    </label>
+
+
+    <script>
+        const $checkbox = document.querySelector('input[type=checkbox]');
+        const $em = document.querySelector('.message');
+
+        $checkbox.addEventListener('change', (e) => {
+            //실제 이벤트가 일어난 요소
+            // console.log(e.target);
+            
+            //체크박스 or radio 버튼의 체크 유무를 확인하는 프로퍼티 
+            //체크되어있으면 true, 아니면 false
+            // if(e.target.checked){
+            //     $em.textContent = '체크됨!';
+            // } else{
+            //     $em.textContent = '체크되지않음!';
+            // } //약관에 동의했는지 안했는지 등에서 사용됨.
+
+            //삼항연산식을 이용해서 줄이기
+            $em.textContent = e.target.checked ? '체크됨!' : '체크되지않음!';
+
+        });
+
+
+
+        
+
+    </script>
+
+
+</body>
+</html>

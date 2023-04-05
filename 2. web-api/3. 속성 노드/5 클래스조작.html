@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스조작</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        .red {
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+        .circle {
+            border-radius: 50%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+<div class="box red">Hello</div>
+
+
+    <script>
+        const $box = document.querySelector('.box')
+
+        
+        console.log($box.attributes.class.value);
+        console.log($box.getAttribute('class'));
+        console.log($box.className); //셋다 동일하게 "box red" 를 출력한다.
+
+        // $box.setAttribute('class', 'box blue')
+        // $box.className = 'box blue circle'
+
+        //클래스를 조작할 때는 classList 프로퍼티를 사용하는 것이 좋다. 
+        console.log($box.classList); //DOMTokenList로 유사배열객체가 돌아옴.
+
+        //요소에 클래스를 추가
+        // $box.className = 'box blue circle'
+        $box.classList.add('circle', 'blue');
+
+        //요소에 특정 클래스를 교체
+        $box.classList.replace('blue', 'red');
+        $box.classList.replace('red', 'blue');
+
+        //요소에 특정 클래스를 삭제
+        $box.classList.remove('circle', 'blue');
+
+        //요소에 특정 클래스가 존재하는지 확인
+        console.log($box.classList.contains('box'));
+
+        //toggle(): 해당 클래스가 존재하면 삭제, 존재하지 않으면 추가
+        $box.classList.toggle('circle');
+        $box.classList.toggle('blue');
+
+        
+
+
+    </script>
+</body>
+</html>
