@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+
+    <!-- 외부 자바스크립트 파일을 현재 파일로 임포트 -->
+    <script src="./2popup.js"></script>
+
+</head>
+<body>
+    <h2>메인 화면</h2>
+
+    <div>
+        메인화면이라고 칩시다
+    </div>
+
+    <script>
+        window.onload = function(){ //.onload = 윈도우 창이 로딩된 후 바로 실행할 내용
+            if(!getCookie('popup')){ //쿠키가 없을 경우 실행!
+                window.open('2 popup.html', '메인팝업창', 'width=300, height=300, left=200, top=200');
+            }
+        }
+
+        // window.onload = function() { //윈도우 창이 로딩된 후 바로 실행할 내용.
+        //     if(!getCookie('popup')) {
+        //         window.open('popup.html', '메인팝업창', 'width=300, height=300, top=200, left=200');
+        //     }
+        // }
+
+    </script>
+
+
+
+</body>
+</html>

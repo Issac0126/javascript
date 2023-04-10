@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 연습문제</title>
+</head>
+<body>
+    
+    <script>
+        // Math.random(): 0.0이상 1.0미만의 랜덤값
+        // Math.floor(): 내림, Math.ceil(): 올림, Math.round(): 반올림
+
+        var rn1 = Math.floor(Math.random()*100+1) //1~100
+        console.log(rn1)
+
+        
+        var oCount= 0, xCount= 0, right= 0, answer = 0; //정답횟수, 오답횟수, 정답, 대답
+
+        while(true){
+            var fir = Math.floor(Math.random()*20+1); //1~20
+            var sec = Math.floor(Math.random()*20+1); //1~20
+            var math = Math.floor(Math.random()*2); //0~2
+            console.log(math)
+            
+            if(math==0){
+                answer = prompt(`Quiz: ${fir} + ${sec} = ???`);
+                right =fir+sec;
+            } else if(math==1){
+                answer = prompt(`Quiz: ${fir} - ${sec} = ???`);
+                right =fir-sec;
+            } else {
+                answer = prompt(`Quiz: ${fir} x ${sec} = ???`);
+                right = fir*sec;
+            }
+
+            if(answer==='그만'){ //그만 입력하면 종료
+                alert('프로그램이 종료되었습니다.\n # 정답횟수: '+oCount+'회, 오답 횟수: '+xCount+'회');
+                break;
+            } 
+
+            if(answer==right){
+                alert('정답입니다!');
+                oCount++;
+            } else{
+                alert('오답입니다... \n정답: '+right);
+                xCount++;
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

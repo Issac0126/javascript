@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./2popup.js"></script>
+</head>
+<body>
+    <div>
+        <img src="../8. BOM/img/3.jpg" alt="1" width="500px"> <br>
+        광고광고광고광고광고광고광고광고광고광고망고광고광고광고광고....
+    </div>
+
+    오늘 하루 이 창 열지 않기 <input type="checkbox">
+
+    <script>
+        const $box = document.querySelector('input')
+        $box.onclick = function() {
+            if($box.checked){
+                createCookie('popup'); //쿠키 생성함수 호출!
+                window.close(); //창닫기
+            }
+        };
+
+
+
+
+    </script>
+</body>
+</html>
