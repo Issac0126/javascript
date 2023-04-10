@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 관리</title>
+
+    <!-- reset.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- 자바스크립트, CSS 불러오기. -->
+    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./main.css">
+
+    <!-- 아이콘 링크 -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <section id="title"><h1>일정 관리</h1></section>
+        <!-- END section title -->
+
+        <section id="add">
+            <div class="plustext"><input type="text" id="todo-input" placeholder="할 일을 입력하세요." required></div>
+            <div class="plusbtn"><span class="lnr lnr-plus-circle"></span></div>
+        </section> <!-- END section add -->
+
+
+        <section id="list">
+            <div class="toDo">
+                <input type="checkbox">
+                <input type="text" value="할 일1" readonly>
+                <div class="icon">
+                    <span class="lnr lnr-undo" id="modi"></span>
+                    <span class="lnr lnr-cross-circle" id="del"></span>
+                </div>
+            </div>
+
+            <div class="toDo">
+                <input type="checkbox">
+                <input type="text" value="할 일2" readonly>
+                <div class="icon">
+                    <span class="lnr lnr-undo" id="modi"></span>
+                    <span class="lnr lnr-cross-circle" id="del"></span>
+                </div>
+            </div>
+
+            <div class="toDo">
+                <input type="checkbox">
+                <input type="text" value="할 일3" readonly>
+                <div class="icon">
+                    <span class="lnr lnr-undo" id="modi"></span>
+                    <span class="lnr lnr-cross-circle" id="del"></span>
+                </div>
+            </div>
+
+            <div class="toDo list-none" id="copy-list"> <!-- 복사용 -->
+                <input type="checkbox">
+                <input type="text" value="할 일3" readonly>
+                <div class="icon">
+                    <span class="lnr lnr-undo" id="modi"></span>
+                    <span class="lnr lnr-cross-circle" id="del"></span>
+                </div>
+            </div>
+            
+
+        </section> <!-- END section list -->
+
+    </div>  <!-- END wrapper -->
+
+
+</body>
+</html>

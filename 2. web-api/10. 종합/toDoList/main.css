@@ -1,0 +1,113 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+input{
+    border: 0px solid #000000;
+    background: inherit;
+    outline-style: none;
+}
+/* 기본설정 끝 */
+
+
+body{
+    background: #E9EBF0;
+    font-size: 13px;
+}
+
+.wrapper{
+    width: 300px;
+    min-height: 200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px #123456;
+}
+
+
+/* START section title */
+section#title {
+    padding: 12px 0;
+    background: #15ABD3;
+}
+section#title h1{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+/* END section title */
+
+
+/* START section add */
+section#add {
+    display: flex;
+    justify-content: space-between;
+    background-color: #414141;
+    color: white;
+    height: 30px;
+    line-height: 30px;
+}
+section#add .plustext {
+    margin-left: 5px;
+}
+section#add input[type="text"] {
+    color: white;
+    width: 265px;
+}
+section#add .plusbtn {
+    background: #ADB4BF;
+    padding: 0 7px 0 7px;
+    line-height: 30px;
+    cursor: pointer;
+}
+/* END section add */
+
+
+/* START section list */
+section#list{
+    
+}
+section#list .toDo{
+    padding: 10px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+section#list .toDo input[type="checkbox"]{
+    padding: 0 10px;
+    flex-grow: 1;
+}
+section#list .toDo input[type="text"]{
+    /* width: 70%; */
+    /* background-color: #15ABD3; */
+    flex-grow: 6;
+}
+section#list .toDo .icon{
+    /* background-color: aquamarine; */
+    margin: 0 5px;
+}
+section#list .toDo .icon span#modi{
+    margin-right: 3px;
+    color: green;
+    cursor: pointer;
+}
+section#list .toDo .icon span#del{
+    margin-right: 3px;
+    color: red;
+    cursor: pointer;
+}
+section#list .toDo:nth-child(even){
+    background-color: #F8F9FC;
+}
+
+
+/* 복사용. 사용할때 none 해제하기 */
+section#list div.toDo.list-none{ 
+    display: none;
+}
+/* END section list */
+
+
+/* 필수 입력사항입니다! 배경 주황색 #FF5200 */
