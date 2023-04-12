@@ -15,11 +15,11 @@ a {
     color: inherit;
     text-decoration: none;
 }
-input{
+/* input{
     border: 0px solid #000000;
     background: inherit;
     outline-style: none;
-}
+} */
 /* 기본설정 끝 */
 
 body{
@@ -33,8 +33,8 @@ body{
     background-size: cover;
     background-position: center;
     margin: 50px auto;
-    width: 700px;
-    height: 500px;
+    width: 800px;
+    height: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -104,7 +104,7 @@ body{
     box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
 }
 #start.hide{
-    animation: hide-up 1s ease-in 0.5s forwards;
+    animation: hide-up 1s ease-in forwards;
 }
 #end{
     animation: hide-down 1.5s ease-in 0.5s backwards;
@@ -138,33 +138,77 @@ body{
 }
 /* END start & end */
 
+
 .wrapper > #gameOn{
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    padding: 0 1%;
+    justify-content: space-between;
     /* align-items: center; */
 
     /* 스르륵 나타나기 효과 주기 */
-    transition: 2s;
+    /* transition: 2s; */
 }
 .wrapper > #gameOn.hide{
     opacity: 0;
 }
 
 
-/* START section.left */
+/* START 셔플을 시작할까요? */
+article.blackJack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    opacity: 0.3;
+}
+article.blackJack #shuffle{
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 3px 20px 7px;
+    font-size: 40px;
+}
+article.blackJack #shuffleBtn{
+    position: absolute;
+    bottom: -120%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* END 셔플을 시작할까요? */
+
+
+
+
+
+
+
+
+
+
+
+/* START gameON setting */
 section#left{
-    width: 17%;
+    /* background-color: aqua; */
+    width: 16%;
     align-self: center;
 }
 section#middle{
+    /* background-color: tomato; */
     width: 55%;
 }
 section#right{
-    width: 25%;
+    /* background-color: yellowgreen; */
+    width: 27%;
+    margin-right: 15px;
 }
+/* END gameON setting */
 
+
+/* START section#left */
 section#left #gameOn-logo{
     width: 130px;
 }
@@ -176,8 +220,109 @@ section#left h4{
     text-align: center;
     padding-left: 5px;
 }
+/* END section#left */
 
-/* END section.left */
+
+/* START section#right */
+section#right{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section#right #betting .betting-text{
+    background-color: black;
+    padding: 12px 15px 12px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    border: 4px solid #E9EBF0;
+    font-size: 14px;
+
+    box-shadow: 5px 5px 0px rgb(179, 174, 171);
+}
+section#right #betting .betting-btn{
+}
+section#right #betting input:nth-of-type(1n){
+    width: 80%;
+    background-color: #dbdbdb;
+    border-radius: 7px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 7px auto 0px;
+
+    padding: 2px 4px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-align: center;
+    transition: 0.05s;
+}
+section#right #betting input:nth-last-of-type(1){
+    letter-spacing: 0em;
+}
+section#right #betting input:nth-of-type(1n):active{
+    background-color: white;
+    border: 2px solid gold;
+    color: black;
+    box-shadow: 0 0 10px white;
+}
+
+section#right #betting-text, /* 금액 표기 */
+section#right #pocket-text{ 
+    margin-top: 5px;
+    width: 130px;
+    font-size: 15px;
+    font-weight: 500;
+    /* background: #45bd12; */
+
+    background-color: black;
+    padding: 4px 2px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    border: 2px solid #E9EBF0;
+    box-shadow: 5px 5px 0px rgb(179, 174, 171);
+
+    text-shadow: 0 0 6px rgba(255, 0, 0, 1);
+    /* background: linear-gradient(to right, rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0.4) 120px, rgba(255, 0, 0, 0) 100%); */
+}
+/* END section#right */
+
+
+
+/* START section#middle */
+section#middle .game-zone{
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+section#middle .game-zone #dealer{
+    background-color: tomato;
+    height: 40%;
+}
+section#middle .game-zone #player{
+    background-color: tomato;
+    height: 40%;
+}
+
+
+section#middle #myCard-sum{
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: aqua;
+    justify-content: center;
+}
+
+/* END section#middle */
+
+
+
 
 
 
