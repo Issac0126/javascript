@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Black Jack</title>
 
     <!-- reset.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
@@ -13,6 +13,9 @@
     <!-- 자바스크립트, CSS 불러오기. -->
     <script src="./app.js" defer></script>
     <link rel="stylesheet" href="./main.css">
+
+    <!-- 파비콘 -->
+    <link rel="icon" href="./img/favicon-16x16-red.png">
 
 </head>
 
@@ -32,13 +35,14 @@
                 <div id="gameOn-logo">
                     <img src="./img/Blackjack logo.png" alt="메인로고">
                 </div>
-                <h4>Score: <em id="gameOn-score">0</em></h4>
+                <!-- <h4>Score: <em id="gameOn-score">0</em></h4> -->
             </section> <!-- END left -->
            
 
             <article class="blackJack"> <!-- 셔플시작 -->
                 <h2>
-                    <em id="shuffle">셔플을 시작할까요?</em>
+                    <em id="shuff-text">※배팅금액을 확인해주세요!!</em>
+                    <em id="shuffle">셔플을 진행해주세요</em>
                     <input id="shuffleBtn" type="button" value="셔플 진행!!">
                 </h2>
             </article>
@@ -48,21 +52,19 @@
                 <div class="game-zone">
                     <div id="dealer">
                         <ul id="dealer-card">
-
                         </ul>
                     </div>
                     <!-- 카드 합계 -->
                     <div id="card-sum"> 
                         <div id="youCard-sum"><h3>0</h3></div>
                         <div id="myCard-sum">
-                            <div id="hitBtn"><h2>Hit</h2></div>
+                            <div id="hitBtn"><h2>HIT</h2></div>
                             <h3>0</h3>
-                            <div id="standBtn"><h2>Stand</h2></div>
+                            <div id="standBtn"><h2>STAND</h2></div>
                         </div>
                     </div>
                     <div id="player">
                         <ul id="player-card">
-
                         </ul>
                     </div>
                 </div> <!-- END game-zone -->
@@ -84,10 +86,9 @@
                             <input type="button" value="25">
                             <input type="button" value="50">
                             <input type="button" value="100">
+                            <input type="button" value="500">
                         </div>
                     </div>
-                    <!-- 자바 스크립트에서 배팅금 금액 한것만큼 더해주기 -->
-                    <!-- 커서 올라갔을때 포인트로 바꿔주고 어떤건지 호버넣어 색깔 살짝 바꿔주기?-->
                 </div>
                 <!-- 배팅 금액 확인란 -->
                 <div id="betting-text">
@@ -102,7 +103,7 @@
         
 
 
-        <div id="end">
+        <div id="end" class="hide">
             <div id="start-logo">
                 <img src="./img/Blackjack logo.png" alt="메인로고">
             </div>

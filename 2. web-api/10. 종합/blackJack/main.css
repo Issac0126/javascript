@@ -26,6 +26,12 @@ body{
     background: #E9EBF0;
     color: #ffffff;
      font-family: 'Hahmlet-Regular';
+
+     /* 드래그 방지 */
+    webkit-user-select:none;
+    moz-user-select:none;
+    ms-user-select:none;
+    user-select:none
 }
 
 .wrapper{
@@ -41,19 +47,13 @@ body{
 
 
 /* START start & end */
-#start{
-    /* display: none; */
-}
-#end{
-    /* display: none; */
-}
 #start, #end{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
-    display: none;
+    z-index: 9999;
+    /* display: none; */
 }
 #start img{
     width: 560px;
@@ -62,7 +62,6 @@ body{
     width: 220px;
 }
 #end #start-logo{
-    
     position: absolute;
     left: 50%;
     top: -10%;
@@ -108,6 +107,9 @@ body{
 }
 #end{
     animation: hide-down 1.5s ease-in 0.5s backwards;
+}
+#end.hide{
+    display: none;
 }
 @keyframes hide-up {
     0%{
@@ -161,9 +163,8 @@ article.blackJack {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    
-    opacity: 0.3;
+    z-index: 999;
+    /* opacity: 0; */
 }
 article.blackJack #shuffle{
     background-color: #000000;
@@ -177,12 +178,56 @@ article.blackJack #shuffleBtn{
     left: 50%;
     transform: translate(-50%, 0);
 }
+article.blackJack #shuff-text{
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: -150px;
+    transform: translate(-50%, 0);
 
+    color: rgb(255, 0, 21);
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 2px 2px 3px rgb(80, 80, 80);
+
+}
+
+article.blackJack #shuff-text.shake {
+    display: block;
+    animation: shake 0.7s linear alternate;
+}
+
+@keyframes shake {
+    0% {
+		transform: translateX(50%);
+	}
+	16% {
+		transform: translateX(-82.27%);
+        /* text-shadow: 3px 3px 0 red; */
+	}
+	28% {
+		transform: translateX(-36.88%);
+	}
+	44% {
+		transform: translateX(-54.63%);
+	}
+	59% {
+		transform: translateX(-48.36%);
+	}
+	73% {
+		transform: translateX(-50.58%);
+        /* text-shadow: 3px 3px 0 red; */
+	}
+	88% {
+		transform: translateX(-49.8%);
+        /* text-shadow: 2px 2px 0 red; */
+	}
+	100% {
+		transform: translateX(-50%);
+        /* text-shadow: 0 0 0 red; */
+	}
+}
 /* END 셔플을 시작할까요? */
-
-
-
-
 
 
 
@@ -192,23 +237,21 @@ article.blackJack #shuffleBtn{
 
 /* START gameON setting */
 section#left{
-    /* background-color: aqua; */
     width: 16%;
     align-self: center;
 }
 section#middle{
-    /* background-color: tomato; */
     width: 55%;
 }
 section#right{
-    /* background-color: yellowgreen; */
     width: 27%;
     margin-right: 15px;
 }
 /* END gameON setting */
 
 
-/* START section#left */
+
+/* START section#left 좌측 */
 section#left #gameOn-logo{
     width: 130px;
 }
@@ -223,7 +266,7 @@ section#left h4{
 /* END section#left */
 
 
-/* START section#right */
+/* START section#right 배팅창 만들기 */
 section#right{
     display: flex;
     flex-flow: column wrap;
@@ -231,7 +274,12 @@ section#right{
     align-items: center;
     text-align: center;
 }
-
+section#right #betting.hide{
+    position: absolute;
+    transition: 0.6s;
+    animation-fill-mode: cubic-bezier(0.12, 0, 0.39, 0);
+    margin-left: 400px;
+}
 section#right #betting .betting-text{
     background-color: black;
     padding: 12px 15px 12px;
@@ -260,6 +308,7 @@ section#right #betting input:nth-of-type(1n){
     letter-spacing: 0.1em;
     text-align: center;
     transition: 0.05s;
+    cursor: pointer;
 }
 section#right #betting input:nth-last-of-type(1){
     letter-spacing: 0em;
@@ -277,7 +326,6 @@ section#right #pocket-text{
     width: 130px;
     font-size: 15px;
     font-weight: 500;
-    /* background: #45bd12; */
 
     background-color: black;
     padding: 4px 2px;
@@ -294,32 +342,218 @@ section#right #pocket-text{
 
 
 
-/* START section#middle */
+/* START section#middle 게임존 만들기 */
 section#middle .game-zone{
     height: 100%;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
     align-content: center;
-}
-section#middle .game-zone #dealer{
-    background-color: tomato;
-    height: 40%;
-}
-section#middle .game-zone #player{
-    background-color: tomato;
-    height: 40%;
+    align-items: center;
 }
 
-
+section#middle #card-sum{
+    display: none;
+    margin-top: 5px;
+}
+section#middle #card-sum.on{
+    display: block;
+    /*flex-flow: row nowrap;
+    justify-content: center;*/
+    cursor: pointer; 
+}
+section#middle #youCard-sum h3{
+    width: 75px;
+    height: 27px;
+    line-height: 27px;
+    border: 2px dotted #aaaaaa ;
+}
 section#middle #myCard-sum{
     display: flex;
     flex-flow: row nowrap;
-    background-color: aqua;
     justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    margin-top: 5px;
+}
+section#middle div > h3{
+    width: 80px;
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 30px;
+    background: rgba(0, 0, 0, 0.7);
+
+    box-shadow: 2px 2px 5px #000000;
+    border: 2px dotted #ffffff ;
+    border-style: dotted;
+    border-radius: 5px;
+    /* background: linear-gradient(to right, rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0)); */
+}
+section#middle #myCard-sum div{
+    width: 53px;
+    height: 53px;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #000000;
+    
+    position: relative;
+    bottom: 15px;
+    text-align: center;
+    line-height: 53px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #000000;
+
+    transition: 0.2s;
+}
+section#middle #myCard-sum #hitBtn{
+    background: url(./img/chip.png) no-repeat;
+    background-size: cover;
+    margin-right: 25px;
+}
+section#middle #myCard-sum #standBtn{
+    background: url(./img/poker-chip.png) no-repeat;
+    background-size: cover;
+    margin-left: 25px;
+}
+section#middle #myCard-sum div h2{
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+section#middle #myCard-sum div:hover{
+    scale: 1.2;
+    cursor: pointer;
+}
+section#middle #myCard-sum div:hover h2{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #504343;
+    box-shadow: 2px 2px 5px #000000;
+    font-size: 14px;
+}
+/*////////////////////////////////////////////////*/
+
+section#middle .game-zone #dealer{
+    margin-top: 5px;
+    height: 40%;
+    width: 100%;
+}
+section#middle .game-zone #player{
+    margin-bottom: 5px;
+    width: 100%;
+    height: 40%;
 }
 
-/* END section#middle */
+section#middle .game-zone div ul{
+    position: relative;
+    /* background-color: antiquewhite; */
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 150px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* overflow: hidden; */
+}
+section#middle .game-zone div ul li{
+    position: absolute;
+
+    width: 82.5px;
+    height: 120px;
+    background-image: url(./img/1-40card/40.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    animation: player-card-up 0.7s cubic-bezier(0.33, 1, 0.68, 1) 0.2s both;
+    /* transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1); */
+}
+section#middle .game-zone div ul#dealer-card li{
+    animation: dealer-card-up 1s cubic-bezier(0.33, 1, 0.68, 1) 0.2s both;
+}
+section#middle .game-zone div ul#player-card li:hover{
+     transform: translateY(-20%);
+}
+
+@keyframes player-card-up {
+    0%{
+        top: 150%;
+        margin-left: 200px;
+    }
+    100%{
+        top: 10%;
+    }
+}
+@keyframes dealer-card-up {
+    0%{
+        top: -120%;
+    }
+    100%{
+        top: 10%;
+    }
+}
+@keyframes player-card-down {
+    0%{
+        top: 10%;
+    }
+    100%{
+        top: 150%;
+    }
+}
+@keyframes dealer-card-down {
+    0%{
+        top: 10%;
+    }
+    100%{
+        top: -120%;
+    }
+}
+section#middle .game-zone div ul li:nth-child(2){
+    margin-left: 40px;
+    z-index: 1;
+}
+section#middle .game-zone div ul li:nth-child(3){
+    margin-left: 80px;
+    z-index: 2;
+}
+section#middle .game-zone div ul li:nth-child(4){
+    margin-left: 120px;
+    z-index: 3;
+}
+section#middle .game-zone div ul li:nth-child(5){
+    margin-left: 160px;
+    z-index: 4;
+}
+section#middle .game-zone div ul li:nth-child(6){
+    margin-left: 200px;
+    z-index: 5;
+}
+section#middle .game-zone div ul li:nth-child(7){
+    margin-left: 240px;
+    z-index: 6;
+}
+section#middle .game-zone div ul li:nth-child(8){
+    margin-left: 280px;
+    z-index: 7;
+}
+section#middle .game-zone div ul li:nth-child(9){
+    margin-left: 320px;
+    z-index: 8;
+}
+section#middle .game-zone div ul li:nth-child(10){
+    margin-left: 360px;
+    z-index: 9;
+}
+
+
+
+/* END section#middle 게임존 */
 
 
 
