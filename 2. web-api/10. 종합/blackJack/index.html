@@ -35,15 +35,16 @@
                 <div id="gameOn-logo">
                     <img src="./img/Blackjack logo.png" alt="메인로고">
                 </div>
-                <!-- <h4>Score: <em id="gameOn-score">0</em></h4> -->
+                <h4>Score: <em id="gameOn-score">0</em></h4>
+                <span id="addScore"><em>- 0</em></span>
             </section> <!-- END left -->
            
 
             <article class="blackJack"> <!-- 셔플시작 -->
                 <h2>
                     <em id="shuff-text">※배팅금액을 확인해주세요!!</em>
-                    <em id="shuffle">셔플을 진행해주세요</em>
-                    <input id="shuffleBtn" type="button" value="셔플 진행!!">
+                    <em id="shuffle">배팅을 진행해주세요</em>
+                    <input id="shuffleBtn" type="button" value="게임 시작!!">
                 </h2>
             </article>
 
@@ -80,13 +81,13 @@
                 <div id="betting"> 
                     <!-- 시작 누르면 나타나게 하기 -->
                     <div class="betting-text">
-                        <h2>배팅금 설정</h2>
+                        <h2>- Betting -</h2>
                         <div class="betting-btn">
-                            <input type="button" value="10">
-                            <input type="button" value="25">
                             <input type="button" value="50">
                             <input type="button" value="100">
                             <input type="button" value="500">
+                            <input type="button" value="1000">
+                            <input type="button" value="All-in">
                         </div>
                     </div>
                 </div>
@@ -97,6 +98,7 @@
                 <div id="pocket-text">
                     소지금: $<span id="pocket-text-money">500</span>
                 </div>
+                <span id="addMoney">+ <em>0</em></span>
             </section> <!-- END right -->
         </div>
         <!-- 게임 끝 -->
