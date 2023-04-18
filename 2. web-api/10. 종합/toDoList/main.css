@@ -55,59 +55,87 @@ section#add input[type="text"] {
     color: white;
     width: 265px;
 }
+section#add input::placeholder {
+    color: #e9e6e6;
+}
 section#add .plusbtn {
-    background: #ADB4BF;
-    padding: 0 7px 0 7px;
+    background: #949596;
+    padding: 0 11px;
     line-height: 30px;
     cursor: pointer;
 }
+.orange {
+    background: #FF5200;
+}
+
 /* END section add */
 
 
-/* START section list */
-section#list{
-    
-}
-section#list .toDo{
-    padding: 10px 0;
+/* section list */
+section#list .todo-list {
+    padding: 7px 0;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
-section#list .toDo input[type="checkbox"]{
+section#list .todo-list:nth-child(even) {
+    background-color: #F8F9FC;
+}
+
+section#list .todo-list input {
     padding: 0 10px;
     flex-grow: 1;
 }
-section#list .toDo input[type="text"]{
-    /* width: 70%; */
-    /* background-color: #15ABD3; */
+
+section#list .todo-list .todo {
     flex-grow: 6;
+    text-align: left;
 }
-section#list .toDo .icon{
-    /* background-color: aquamarine; */
+
+section#list .todo-list .icon {
     margin: 0 5px;
 }
-section#list .toDo .icon span#modi{
+
+
+section#list .todo-list .icon .modi {
     margin-right: 3px;
     color: green;
     cursor: pointer;
 }
-section#list .toDo .icon span#del{
+
+section#list .todo-list .icon .del {
     margin-right: 3px;
     color: red;
     cursor: pointer;
 }
-section#list .toDo:nth-child(even){
-    background-color: #F8F9FC;
-}
 
-
-/* 복사용. 사용할때 none 해제하기 */
-section#list div.toDo.list-none{ 
+#list .todo-list.real {
     display: none;
 }
-/* END section list */
 
 
-/* 필수 입력사항입니다! 배경 주황색 #FF5200 */
+#list .real.show {
+    display: flex;
+}
+
+
+/* 삭제 모션 */
+.delMoving {
+    animation: delMove 1.5s ease-in-out;
+}
+@keyframes delMove {
+    0% {
+        background: orange;
+        transform: translateX(20px);
+    }
+    50% {
+        background: orangered;
+        transform: translateX(-500px);
+    } 
+    100% {
+        background: red;
+        transform: translateX(-2000px);
+    }
+}
+

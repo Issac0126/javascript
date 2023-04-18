@@ -265,7 +265,7 @@ section#left h4{
 /* END section#left */
 
 
-/* START section#right 배팅창 만들기 */
+/* START section#right 베팅창 만들기 */
 section#right{
     display: flex;
     flex-flow: column wrap;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일정 관리</title>
+    <title>Document</title>
 
     <!-- reset.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
@@ -25,48 +25,47 @@
         <!-- END section title -->
 
         <section id="add">
-            <div class="plustext"><input type="text" id="todo-input" placeholder="할 일을 입력하세요." required></div>
+            <input type="text" id="todo-input" placeholder="할 일을 입력하세요." required>
             <div class="plusbtn"><span class="lnr lnr-plus-circle"></span></div>
         </section> <!-- END section add -->
 
 
         <section id="list">
-            <div class="toDo">
-                <input type="checkbox">
-                <input type="text" value="할 일1" readonly>
+            <div class="todo-list real"> <!-- 복사용 -->
+                <input type="checkbox" class="check">
+                <span class="todo"></span>
                 <div class="icon">
-                    <span class="lnr lnr-undo" id="modi"></span>
-                    <span class="lnr lnr-cross-circle" id="del"></span>
+                    <span class="lnr lnr-undo modi"></span>
+                    <span class="lnr lnr-cross-circle del"></span>
                 </div>
             </div>
 
-            <div class="toDo">
-                <input type="checkbox">
-                <input type="text" value="할 일2" readonly>
+            <div class="todo-list">
+                <input type="checkbox" class="check">
+                <span class="todo">할 일1</span>
                 <div class="icon">
-                    <span class="lnr lnr-undo" id="modi"></span>
-                    <span class="lnr lnr-cross-circle" id="del"></span>
+                    <span class="lnr lnr-undo modi"></span>
+                    <span class="lnr lnr-cross-circle del"></span>
                 </div>
             </div>
 
-            <div class="toDo">
-                <input type="checkbox">
-                <input type="text" value="할 일3" readonly>
+            <div class="todo-list">
+                <input type="checkbox" class="check">
+                <span class="todo">할 일2</span>
                 <div class="icon">
-                    <span class="lnr lnr-undo" id="modi"></span>
-                    <span class="lnr lnr-cross-circle" id="del"></span>
+                    <span class="lnr lnr-undo modi"></span>
+                    <span class="lnr lnr-cross-circle del"></span>
                 </div>
             </div>
 
-            <div class="toDo list-none" id="copy-list"> <!-- 복사용 -->
-                <input type="checkbox">
-                <input type="text" value="할 일3" readonly>
+            <div class="todo-list">
+                <input type="checkbox" class="check">
+                <span class="todo">할 일3</span>
                 <div class="icon">
-                    <span class="lnr lnr-undo" id="modi"></span>
-                    <span class="lnr lnr-cross-circle" id="del"></span>
+                    <span class="lnr lnr-undo modi"></span>
+                    <span class="lnr lnr-cross-circle del"></span>
                 </div>
             </div>
-            
 
         </section> <!-- END section list -->
 

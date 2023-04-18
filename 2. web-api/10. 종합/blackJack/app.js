@@ -23,7 +23,7 @@ const gameData = {
     dealCard: 0, // 딜러 카드의 총합
     myCard: 0, // 내 카드의 총합
     myMoney: 500, // 내 현재 금액
-    myBetting: 0, // 내 배팅 합계
+    myBetting: 0, // 내 베팅 합계
     myScore: 0 // 나의 점수
 }
 
@@ -74,7 +74,7 @@ let $betting = document.querySelector('#betting')
 let $betMoney = document.getElementById('betting-text-money');
 let $poMoney = document.getElementById('pocket-text-money');
 
-// 배팅 실시간 설정
+// 베팅 실시간 설정
 let bett = 0;
 $betting.addEventListener('click', e => {
     if (!e.target.matches('input')) return;
@@ -153,7 +153,7 @@ $hitBtn.addEventListener('click', e => {
 
     if (gameData.myCard > 21) {
         setTimeout(e=>{
-            alert('딜러 승리!')
+            alert('21 초과! \n딜러의 승리입니다.')
             roundLose()
             loseCheck();
             roundReset();
@@ -197,14 +197,16 @@ $standBtn.addEventListener('click', e => {
                     $addMoneyEm.textContent = gameData.myBetting*2;
                     $addMoney.classList.add('win') //소지금 올라감
 
-                    alert('플레이어 승리!')
+                    alert('Dealer: ▮'+gameData.dealCard+'  Player: ▮'+gameData.myCard
+                    +'\n⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊\n플레이어의 승리입니다!.')
                     
                 } else if (gameData.dealCard > gameData.myCard) {
-                    alert('딜러 승리!')
+                    alert('Dealer: ▮'+gameData.dealCard+'  Player: ▮'+gameData.myCard
+                    +'\n⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊\n딜러의 승리입니다.')
                     roundLose()
     
                 } else if (gameData.dealCard === gameData.myCard) {
-                    alert('비겼음')
+                    alert(gameData.myCard+'점 동점으로 비겼습니다!')
                     gameData.myMoney += gameData.myBetting;
                     $poMoney.textContent = gameData.myMoney;
                 }
@@ -243,10 +245,11 @@ function loseCheck(){
 //딜러 승리시
 function roundLose() {
     if(gameData.myScore<=0)return;
+    if(gameData.myMoney <= 0)return;
     $addScore.style.color = 'red';
-    $addScoreEm.textContent = '- '+(gameData.myBetting*10);
+    $addScoreEm.textContent = '- '+(gameData.myBetting*5);
     $addScore.classList.add('win') //스코어 내려감
-    gameData.myScore -= gameData.myBetting*10;
+    gameData.myScore -= gameData.myBetting*5;
     $gameScoreIng.textContent = gameData.myScore;
 }
 
